@@ -654,4 +654,192 @@ footer .end span{
 ::-webkit-scrollbar-thumb{
     background: #fac031;
     border-radius: 15px;
+
+}
+/* ----------------------- */
+/*  MOBILE‑FIRST DEFAULTS  */
+/* ----------------------- */
+
+/* Make media scale to container width */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Avoid overflow on small screens */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Constrain page width on big screens */
+.container,
+.main,
+.about,
+.menu,
+.order,
+.footer_main,
+.end {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+/* Flexible nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;         /* allows wrapping on small screens */
+  gap: 12px;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  list-style: none;
+}
+
+nav ul li a,
+.linkk a {
+  display: inline-block;
+  padding: 8px 10px;
+}
+
+/* Icons wrap nicely */
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hero / main block stacks on mobile */
+.main {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;   /* 1 column on phones */
+  gap: 18px;
+}
+
+/* Product / menu grid */
+.menu_box {
+  display: grid;
+  grid-template-columns: 1fr;   /* phones: 1 per row */
+  gap: 16px;
+}
+
+/* Cards fill row on phones */
+.menu_card,
+.team .profile {
+  width: 100%;
+}
+
+/* Inputs expand full width on phones */
+.input input,
+.input textarea,
+.input select,
+.order .input input,
+.order .input textarea,
+.order .input select {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Buttons are touch friendly */
+button, .menu_btn a, .order button, .linkk a {
+  line-height: 1.2;
+  padding: 10px 14px;
+}
+
+/* Make long words wrap instead of overflowing */
+* {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ----------------------- */
+/*  BREAKPOINTS            */
+/* ----------------------- */
+
+/* ≥ 600px: small tablets */
+@media (min-width: 600px) {
+  .main {
+    grid-template-columns: 1fr 1fr;   /* image + text side by side */
+  }
+
+  .menu_box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* 2 cards/row */
+    gap: 18px;
+  }
+
+  nav ul {
+    gap: 14px 22px;
+  }
+}
+
+/* ≥ 768px: tablets */
+@media (min-width: 768px) {
+  body { font-size: 17px; }
+
+  .menu_box {
+    grid-template-columns: repeat(3, minmax(0, 1fr));  /* 3 cards/row */
+    gap: 20px;
+  }
+
+  .team .profile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+/* ≥ 1024px: laptops/desktops */
+@media (min-width: 1024px) {
+  body { font-size: 18px; }
+
+  nav { gap: 16px; }
+
+  .menu_box {
+    grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4 cards/row */
+    gap: 22px;
+  }
+
+  .team .profile {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ≥ 1280px: big desktops */
+@media (min-width: 1280px) {
+  body { font-size: 19px; }
+}
+
+/* ----------------------- */
+/*  UTILITY FIXES          */
+/* ----------------------- */
+
+/* Prevent fixed widths from breaking layout */
+[class*="card"], .menu_card, .profile, .about, .order, .main_image {
+  max-width: 100%;
+}
+
+/* If you have images inside .menu_image, ensure they fill card nicely */
+.menu_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Footer stacks on mobile, rows on desktop */
+.footer_main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .footer_main {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
