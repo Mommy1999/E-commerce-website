@@ -843,3 +843,35 @@ button, .menu_btn a, .order button, .linkk a {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+/* --- your existing styles --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* nav, hero, footer, etc. … your old CSS rules stay here */
+
+/* --- new responsive rules at the bottom --- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Menu grid responsiveness */
+.menu-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 16px; 
+}
+
+@media (max-width: 1024px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .menu-grid { grid-template-columns: 1fr; }
+}
