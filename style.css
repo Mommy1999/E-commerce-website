@@ -656,222 +656,178 @@ footer .end span{
     border-radius: 15px;
 
 }
-/* ----------------------- */
-/*  MOBILE‑FIRST DEFAULTS  */
-/* ----------------------- */
-
-/* Make media scale to container width */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Avoid overflow on small screens */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Constrain page width on big screens */
-.container,
-.main,
-.about,
-.menu,
-.order,
-.footer_main,
-.end {
-  width: min(1200px, 92%);
-  margin-inline: auto;
-}
-
-/* Flexible nav */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;         /* allows wrapping on small screens */
-  gap: 12px;
-  padding: 10px 0;
-}
-
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  list-style: none;
-}
-
-nav ul li a,
-.linkk a {
-  display: inline-block;
-  padding: 8px 10px;
-}
-
-/* Icons wrap nicely */
-.icon {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Hero / main block stacks on mobile */
-.main {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr;   /* 1 column on phones */
-  gap: 18px;
-}
-
-/* Product / menu grid */
-.menu_box {
-  display: grid;
-  grid-template-columns: 1fr;   /* phones: 1 per row */
-  gap: 16px;
-}
-
-/* Cards fill row on phones */
-.menu_card,
-.team .profile {
-  width: 100%;
-}
-
-/* Inputs expand full width on phones */
-.input input,
-.input textarea,
-.input select,
-.order .input input,
-.order .input textarea,
-.order .input select {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Buttons are touch friendly */
-button, .menu_btn a, .order button, .linkk a {
-  line-height: 1.2;
-  padding: 10px 14px;
-}
-
-/* Make long words wrap instead of overflowing */
+/* --- Base Styles --- */
 * {
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-}
-
-/* ----------------------- */
-/*  BREAKPOINTS            */
-/* ----------------------- */
-
-/* ≥ 600px: small tablets */
-@media (min-width: 600px) {
-  .main {
-    grid-template-columns: 1fr 1fr;   /* image + text side by side */
-  }
-
-  .menu_box {
-    grid-template-columns: repeat(2, minmax(0, 1fr));  /* 2 cards/row */
-    gap: 18px;
-  }
-
-  nav ul {
-    gap: 14px 22px;
-  }
-}
-
-/* ≥ 768px: tablets */
-@media (min-width: 768px) {
-  body { font-size: 17px; }
-
-  .menu_box {
-    grid-template-columns: repeat(3, minmax(0, 1fr));  /* 3 cards/row */
-    gap: 20px;
-  }
-
-  .team .profile {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-}
-
-/* ≥ 1024px: laptops/desktops */
-@media (min-width: 1024px) {
-  body { font-size: 18px; }
-
-  nav { gap: 16px; }
-
-  .menu_box {
-    grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4 cards/row */
-    gap: 22px;
-  }
-
-  .team .profile {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ≥ 1280px: big desktops */
-@media (min-width: 1280px) {
-  body { font-size: 19px; }
-}
-
-/* ----------------------- */
-/*  UTILITY FIXES          */
-/* ----------------------- */
-
-/* Prevent fixed widths from breaking layout */
-[class*="card"], .menu_card, .profile, .about, .order, .main_image {
-  max-width: 100%;
-}
-
-/* If you have images inside .menu_image, ensure they fill card nicely */
-.menu_image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* Footer stacks on mobile, rows on desktop */
-.footer_main {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-@media (min-width: 768px) {
-  .footer_main {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-/* --- your existing styles --- */
-body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
   background: #fff;
+  color: #333;
 }
 
-/* nav, hero, footer, etc. … your old CSS rules stay here */
-
-/* --- new responsive rules at the bottom --- */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-img { max-width: 100%; height: auto; display: block; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-
-/* Menu grid responsiveness */
-.menu-grid { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 16px; 
+/* --- Navigation Bar --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: #222;
+  color: #fff;
 }
 
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #f39c12;
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url("hero.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  padding: 12px 24px;
+  background: #f39c12;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero .btn:hover {
+  background: #d35400;
+}
+
+/* --- Section Titles --- */
+section h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* --- Menu Grid --- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 32px 40px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.card .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f39c12;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card .btn:hover {
+  background: #d35400;
+}
+
+/* --- Footer --- */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+/* --- Responsive Rules --- */
 @media (max-width: 1024px) {
-  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
 @media (max-width: 768px) {
-  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  nav {
+    flex-direction: column;
+  }
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
+
 @media (max-width: 480px) {
-  .menu-grid { grid-template-columns: 1fr; }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    text-align: center;
+  }
+  .hero {
+    padding: 60px 20px;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
 }
